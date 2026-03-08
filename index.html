@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        video {
+            display: none; /* Caché au début */
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+        #overlay {
+            color: white;
+            text-align: center;
+            font-family: sans-serif;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .btn {
+            padding: 15px 30px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="overlay" onclick="startRickroll()">
+        <button class="btn">Se connecter</button>
+    </div>
+
+    <video id="rickvideo" loop playsinline>
+        <source src="Rick Astley - Never Gonna Give You Up (Official Music Video).mp4" type="video/mp4">
+    </video>
+
+    <script>
+        function startRickroll() {
+            const video = document.getElementById('rickvideo');
+            const overlay = document.getElementById('overlay');
+
+            // 1. On cache le bouton
+            overlay.style.display = 'none';
+            // 2. On affiche la vidéo
+            video.style.display = 'block';
+            // 3. On lance la lecture avec le son
+            video.play();
+        }
+    </script>
+
+</body>
+</html>
